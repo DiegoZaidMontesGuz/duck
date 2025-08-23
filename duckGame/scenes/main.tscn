@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnywkbb8n4esc"]
+
+[ext_resource type="Texture2D" uid="uid://c3qsbumgt7mdr" path="res://icon.svg" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://c65d7lpwr3nnn" path="res://scripts/fast_duck.gd" id="1_o5qli"]
+
+[node name="Main" type="Node2D"]
+
+[node name="FastDuck" type="Sprite2D" parent="."]
+position = Vector2(577, 293)
+texture = ExtResource("1_0wfyh")
+script = ExtResource("1_o5qli")
