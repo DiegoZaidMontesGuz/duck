@@ -1,6 +1,11 @@
 extends Sprite2D
 var mouse_screen
 var mouse_world
+var speed = 10
+
+func _ready():
+	#position = Vector2(10,10)
+	pass
 #func _process(de):
 	#var mouse_screen := get_viewport().get_mouse_position()  # pixels in the viewport
 	#var mouse_world  := get_global_mouse_position()          # world coords (respects Camera2D)
@@ -8,9 +13,13 @@ var mouse_world
 func _process(delta):
 	mouse_screen = get_viewport().get_mouse_position()  # pixels in the viewport
 	mouse_world  = get_global_mouse_position()  
+	var sl = slope(position, mouse_screen)
+	var inter = intercept(position, sl)
+	print("interception: ")
+	print(inter)
+	print("Slope: ")
+	print(sl)
 	
-	print(slope(position, mouse_screen))
-	print(mouse_screen)
 	
 func movevemrnt():
 	
@@ -20,4 +29,23 @@ func movevemrnt():
 func slope(punto1, punto2) -> float:
 	var slope = (punto2.x - punto1.x) / (punto2.y - punto1.y)
 	return slope
+
+func intercept(punto, pendeinte) -> float:
+	var b = punto.y - (punto.x * pendeinte)
+	return b
+
+func slopeIterception(equis, slope, interception) -> float:
+	var y = equis * slope + interception
+	return y
 	
+func stepLenght(speed,slope)-> float:
+	var x = speed / slope
+	return x
+func direction(duckPosition, mousePosition) -> float:
+	
+	return 0
+
+func followTheMouse(cPosition, mousePosition, speed) -> Vector2:
+	var sl = slope(cPosition, mousePosition)
+	
+	return Vector2(0,0)
