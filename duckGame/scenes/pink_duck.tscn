@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://detlp1vtwmohi"]
+
+[ext_resource type="Script" uid="uid://bbkai1yj8hu8y" path="res://scripts/PinkDuck.gd" id="1_2qptc"]
+[ext_resource type="Texture2D" uid="uid://c3qsbumgt7mdr" path="res://icon.svg" id="2_hguhe"]
+
+[node name="PinkDuck" type="CharacterBody2D"]
+script = ExtResource("1_2qptc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_hguhe")

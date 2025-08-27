@@ -1,17 +1,19 @@
 extends CharacterBody2D
 class_name  BaseDuck
 
-@export var speed: float = 600.0
+@export var speed: float = 100
 @export var stop_radius: float = 10.0
-
+var to_mouse : Vector2
+var dist := 0.0
+var mouse : Vector2
 func _physics_process(_delta: float) -> void:
-	var target: Vector2 = get_global_mouse_position()
-	var to_target: Vector2 = target - global_position
-	var dist := to_target.length()
+	mouse = get_global_mouse_position()
+	to_mouse = mouse - global_position
+	dist = to_mouse.length()
 
 	if dist > stop_radius:
-		velocity = to_target.normalized() * speed
+		velocity = to_mouse.normalized() * speed
 	else:
 		velocity = Vector2.ZERO
 
-	move_and_slide()  # handles collision response with walls
+	move_and_slide()  
