@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckpkldtv1hrnh"]
+
+[ext_resource type="Script" uid="uid://c7htr6gfhkypy" path="res://scenes/lightDuck.gd" id="1_7u7fv"]
+[ext_resource type="Texture2D" uid="uid://c3qsbumgt7mdr" path="res://icon.svg" id="2_77iv4"]
+
+[node name="YellowDuck" type="CharacterBody2D"]
+script = ExtResource("1_7u7fv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_77iv4")
