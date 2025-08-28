@@ -1,10 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://xam4cjnwe70h"]
+[gd_scene load_steps=8 format=3 uid="uid://xam4cjnwe70h"]
 
 [ext_resource type="Script" uid="uid://dvad4hm77t7xc" path="res://scripts/PurpleDuck.gd" id="1_8mvaa"]
-[ext_resource type="Texture2D" uid="uid://c3qsbumgt7mdr" path="res://icon.svg" id="2_gvu6g"]
+[ext_resource type="Texture2D" uid="uid://dcf5w26uchmxt" path="res://images/pupleDuck.png" id="2_8mvaa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvu6g"]
+atlas = ExtResource("2_8mvaa")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swnnq"]
+atlas = ExtResource("2_8mvaa")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8g0q1"]
+atlas = ExtResource("2_8mvaa")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi07g"]
+atlas = ExtResource("2_8mvaa")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eb2b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvu6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swnnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8g0q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi07g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="PurpleDuck" type="CharacterBody2D"]
 script = ExtResource("1_8mvaa")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_gvu6g")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_eb2b3")
+autoplay = "default"
