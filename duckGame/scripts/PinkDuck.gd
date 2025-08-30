@@ -2,13 +2,21 @@ extends BaseDuck
 class_name PinkDuck
 
 var default_speed = 600
+var tport =preload("res://scenes/tport.tscn")
+var parent
 
 func _ready():
-	
+	parent = get_parent()
 	speed = default_speed
 	
 func _input(event):
-	if event is InputEventMouseButton and event.is_pressed():
+	if event is InputEventMouseButton and event.is_pressed() and not is_running:
+		var instance = tport.instantiate()
+		var instance1 = tport.instantiate()
+		instance.location = position
+		parent.add_child(instance)
+		add_child(instance1)
+		activate_timer()
 		var tportPosition = to_mouse.normalized() * 400
 		var tportLen = tportPosition.length()
 		if tportLen >= dist:

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name  BaseDuck
 
-@export var speed: float = 100
+@export var speed: float = 600
 @export var stop_radius: float = 10.0
 
 var to_mouse : Vector2
@@ -13,7 +13,7 @@ var chargeTime = 3.0
 
 
 func  _ready():
-	
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	pass
 	
 func _process(delta):

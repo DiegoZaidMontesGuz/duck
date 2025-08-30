@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2xp74wrga1a"]
+
+[ext_resource type="Texture2D" uid="uid://c3qsbumgt7mdr" path="res://icon.svg" id="1_gsm58"]
+
+[node name="thunder" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture = ExtResource("1_gsm58")
+gravity = Vector2(0, 0)

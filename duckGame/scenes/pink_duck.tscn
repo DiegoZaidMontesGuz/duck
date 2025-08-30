@@ -1,10 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://detlp1vtwmohi"]
+[gd_scene load_steps=8 format=3 uid="uid://detlp1vtwmohi"]
 
 [ext_resource type="Script" uid="uid://bbkai1yj8hu8y" path="res://scripts/PinkDuck.gd" id="1_2qptc"]
-[ext_resource type="Texture2D" uid="uid://c3qsbumgt7mdr" path="res://icon.svg" id="2_hguhe"]
+[ext_resource type="Texture2D" uid="uid://dmdx0h8gq71mm" path="res://images/PinkDuck.png" id="2_2qptc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hguhe"]
+atlas = ExtResource("2_2qptc")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ad8k"]
+atlas = ExtResource("2_2qptc")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrejq"]
+atlas = ExtResource("2_2qptc")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw3sb"]
+atlas = ExtResource("2_2qptc")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gha7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hguhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ad8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrejq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vw3sb")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
 
 [node name="PinkDuck" type="CharacterBody2D"]
 script = ExtResource("1_2qptc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_hguhe")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_gha7a")
+animation = &"walking"
+autoplay = "walking"
