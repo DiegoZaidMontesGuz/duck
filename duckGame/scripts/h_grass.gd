@@ -19,8 +19,8 @@ func _ready():
 			if rng.randf() < density:
 				var t := tuft_scene.instantiate()
 				# jitter inside the cell (still deterministic thanks to rng seed)
-				var px := x * grid + rng.randf_range(-grid * 0.35, grid * 0.35)
-				var py := y * grid + rng.randf_range(-grid * 0.35, grid * 0.35)
+				var px := (x - (rows/2) ) * grid + rng.randf_range(-grid * 0.35, grid * 0.35)
+				var py := (y - (cols/2)) * grid + rng.randf_range(-grid * 0.35, grid * 0.35)
 				t.position = Vector2(px, py)
 
 				# optional tiny variety:

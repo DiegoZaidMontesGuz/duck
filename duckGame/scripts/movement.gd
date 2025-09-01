@@ -3,6 +3,7 @@ class_name  BaseDuck
 
 @export var speed: float = 600
 @export var stop_radius: float = 10.0
+var idle = false
 
 var to_mouse : Vector2
 var dist := 0.0
@@ -42,7 +43,9 @@ func _physics_process(_delta: float) -> void:
 
 	if dist > stop_radius:
 		velocity = to_mouse.normalized() * speed
+		idle = false
 	else:
 		velocity = Vector2.ZERO
+		idle = true
 
 	move_and_slide()  

@@ -1,17 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxoh6xa3odfto"]
+[gd_scene load_steps=5 format=3 uid="uid://bxoh6xa3odfto"]
 
+[ext_resource type="Script" uid="uid://clxencakodb47" path="res://scripts/barrier.gd" id="1_8ilpk"]
 [ext_resource type="Texture2D" uid="uid://cgmbtheh436h7" path="res://images/barriers.png" id="1_qfl2k"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
-size = Vector2(207, 195)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlnxh"]
+size = Vector2(211, 198)
 
-[node name="Barrier" type="RigidBody2D"]
-gravity_scale = 0.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ilpk"]
+size = Vector2(212, 197)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.5, -10.5)
-shape = SubResource("RectangleShape2D_tefeu")
+[node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_8ilpk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8.5, -11)
+shape = SubResource("RectangleShape2D_dlnxh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_qfl2k")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(9, -11.5)
+shape = SubResource("RectangleShape2D_8ilpk")
