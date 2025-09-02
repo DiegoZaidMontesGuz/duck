@@ -1,6 +1,4 @@
 extends Control
-# Put this script on a parent UI node (e.g., a full-screen Control/CanvasLayer root),
-# and make the TextureProgressBar a child named "Bar".
 
 @onready var bar: TextureProgressBar = $Bar
 var follow := true
@@ -8,8 +6,8 @@ var offset := Vector2(12, 16)  # shift so it doesn't sit directly on the cursor
 
 func _ready() -> void:
 	bar.min_value = 0
-	bar.max_value = 100
-	bar.value = 75
+	bar.max_value = 1000
+	bar.value = 1000
 
 func _process(_delta: float) -> void:
 	if not follow:

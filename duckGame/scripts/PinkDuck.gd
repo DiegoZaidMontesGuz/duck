@@ -2,13 +2,18 @@ extends BaseDuck
 class_name PinkDuck
 
 var default_speed := 600
+@export var default_time = 3
 var tport := preload("res://scenes/tport.tscn")
 var pBar := preload("res://scenes/progress_bar.tscn")
 var parent
 var papa := "papa"
 var isThereAWall := false
+var draining_phase = false
+var restore_Phase = false
+
 
 @onready var animated_sprite := $AnimatedSprite2D
+@onready var prog_bar := $progress_bar/Bar
 
 func is_position_in_wall(pos: Vector2) -> bool:
 	var space_state := get_world_2d().direct_space_state
@@ -43,11 +48,33 @@ func find_landing_within(start: Vector2, dir: Vector2, max_dist: float, step := 
 	# Couldn't find a free spot within the distance cap.
 	return start
 
+func draining_bar():
+	if prog_bar.value != 0:
+		prog_bar.value -= 34
+	else:
+		draining_phase = false
+		restore_Phase = true
+
+func restore_bar():
+	if prog_bar.value != 1000:
+		prog_bar.value += ceil(1000.0 / (60.0 * default_time))
+	else :
+		restore_Phase = false
+	
+
 func _ready():
 	parent = get_parent()
 	var barInstance = pBar.instantiate()
 	parent.add_child(barInstance)
 	speed = default_speed
+	chargeTime = default_time
+
+func _process(delta):
+	#print(prog_bar.value)
+	if draining_phase:
+		draining_bar()
+	elif  restore_Phase:
+		restore_bar()
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and not is_running:
@@ -72,6 +99,7 @@ func _input(event):
 		# Only move if we actually found something different than start.
 		if landing != global_position:
 			global_position = landing
+			draining_phase = true
 		# else: stay put (e.g., entire range is solid)
 
 	elif event is InputEventMouseButton and not event.is_pressed():

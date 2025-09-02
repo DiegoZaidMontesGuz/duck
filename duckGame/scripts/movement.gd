@@ -14,15 +14,14 @@ var chargeTime = 3.0
 
 
 func  _ready():
-	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Engine.max_fps = 60
 	
 	pass
 	
-func _process(delta):
-	var target := get_global_mouse_position()
-	var to_mouse := target - global_position
-	rotation = to_mouse.angle()
-	pass
+#func _process(delta):
+	#
+	#pass
 	
 func activate_timer():
 	if is_running:
@@ -38,6 +37,7 @@ func start_timer():
 	is_running = false
 
 func _physics_process(_delta: float) -> void:
+	#print(Engine.get_frames_per_second())
 	mouse = get_global_mouse_position()
 	to_mouse = mouse - global_position
 	dist = to_mouse.length()
@@ -50,3 +50,7 @@ func _physics_process(_delta: float) -> void:
 		idle = true
 
 	move_and_slide()  
+	
+	var target := get_global_mouse_position()
+	var to_mouse := target - global_position
+	rotation = to_mouse.angle()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://detlp1vtwmohi"]
+[gd_scene load_steps=11 format=3 uid="uid://detlp1vtwmohi"]
 
 [ext_resource type="Script" uid="uid://bbkai1yj8hu8y" path="res://scripts/PinkDuck.gd" id="1_2qptc"]
 [ext_resource type="Texture2D" uid="uid://dmdx0h8gq71mm" path="res://images/PinkDuck.png" id="2_2qptc"]
+[ext_resource type="PackedScene" uid="uid://bqijmcfqjk0v3" path="res://scenes/progress_bar.tscn" id="3_hguhe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2qptc"]
 atlas = ExtResource("2_2qptc")
@@ -69,3 +70,6 @@ shape = SubResource("CircleShape2D_2qptc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="progress_bar" parent="." instance=ExtResource("3_hguhe")]
+scale = Vector2(2, 2)
