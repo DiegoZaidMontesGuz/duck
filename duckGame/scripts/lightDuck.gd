@@ -30,13 +30,14 @@ func _process(delta):
 		draning_bar()
 	if restore_phase:
 		restore_bar()
-	Color.YELLOW
+	
 func _input(event):
 	if event is InputEventMouseButton and not is_running:
 		#activate_timer()
 		speed_phase = true
 		speed *= 5
 		electricity.emitting = true
+		
 	else:
 		if speed_phase:
 			speed_phase = false

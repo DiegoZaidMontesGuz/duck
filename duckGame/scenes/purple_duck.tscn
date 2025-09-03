@@ -1,7 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://xam4cjnwe70h"]
+[gd_scene load_steps=12 format=3 uid="uid://xam4cjnwe70h"]
 
 [ext_resource type="Script" uid="uid://dvad4hm77t7xc" path="res://scripts/PurpleDuck.gd" id="1_8mvaa"]
 [ext_resource type="Texture2D" uid="uid://dcf5w26uchmxt" path="res://images/pupleDuck.png" id="2_8mvaa"]
+[ext_resource type="PackedScene" uid="uid://ot63u4xy1wde" path="res://scenes/progress_bar_purple.tscn" id="3_gvu6g"]
+[ext_resource type="PackedScene" uid="uid://cd2tjgye3ct2b" path="res://scenes/purple.tscn" id="4_swnnq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfrvt"]
+atlas = ExtResource("2_8mvaa")
+region = Rect2(1024, 0, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvu6g"]
 atlas = ExtResource("2_8mvaa")
@@ -23,6 +29,14 @@ region = Rect2(1024, 1024, 1024, 1024)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_wfrvt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gvu6g")
 }, {
 "duration": 1.0,
@@ -35,15 +49,31 @@ animations = [{
 "texture": SubResource("AtlasTexture_hi07g")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walking",
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8mvaa"]
+
 [node name="PurpleDuck" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_8mvaa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_eb2b3")
-autoplay = "default"
+animation = &"idle"
+autoplay = "walking"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(55.41, 16.545)
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_8mvaa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="progress_bar" parent="." instance=ExtResource("3_gvu6g")]
+scale = Vector2(2, 2)
+
+[node name="purple" parent="." instance=ExtResource("4_swnnq")]
