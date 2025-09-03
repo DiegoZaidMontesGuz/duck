@@ -31,9 +31,11 @@ func _process(delta):
 	#pinkDuck.isThereAWall = true
 			
 func _on_mouse_entered():
-	pinkDuck.isThereAWall = true
-	print("Mouse entered the area")
+	if pinkDuck != null:
+		pinkDuck.isThereAWall = true
+		print("Mouse entered the area")
 	
 func _on_mouse_exited():
-	pinkDuck.isThereAWall = false
-	print("Mouse left the area")
+	if pinkDuck != null:
+		pinkDuck.isThereAWall = false
+		print("Mouse left the area")

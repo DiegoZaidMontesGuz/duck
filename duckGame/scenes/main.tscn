@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://xam4cjnwe70h" path="res://scenes/purple_duck.tscn" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://cl4peijrwo7at" path="res://scripts/movement.gd" id="3_sugp2"]
 [ext_resource type="Texture2D" uid="uid://da73veo3hijqs" path="res://images/grass (4).png" id="4_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://detlp1vtwmohi" path="res://scenes/pink_duck.tscn" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://bv2s0v80kfqli" path="res://images/standingPink.png" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://bxoh6xa3odfto" path="res://scenes/barrier.tscn" id="7_ya4ey"]
 [ext_resource type="Script" uid="uid://bhnx1mjojjkxh" path="res://scripts/h_grass.gd" id="8_85g3d"]
 [ext_resource type="Texture2D" uid="uid://xc1y6bnij73u" path="res://images/grass (5).png" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://k4fsuwpsoj46" path="res://scenes/grass.tscn" id="9_choun"]
+[ext_resource type="PackedScene" uid="uid://ckpkldtv1hrnh" path="res://scenes/yellow_duck.tscn" id="10_choun"]
 
 [node name="Main" type="Node2D"]
 metadata/_edit_vertical_guides_ = [-1795.0]
@@ -41,11 +41,6 @@ rotation = -2.0944
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_tipki")
 
-[node name="PinkDuck" parent="." instance=ExtResource("6_tefeu")]
-top_level = true
-position = Vector2(-178, 410)
-scale = Vector2(0.5, 0.5)
-
 [node name="hGrass" type="Node2D" parent="."]
 script = ExtResource("8_85g3d")
 area_size = Vector2i(10000, 10000)
@@ -67,3 +62,6 @@ position = Vector2(366, 216)
 
 [node name="barrier2" parent="." instance=ExtResource("7_ya4ey")]
 position = Vector2(368, 579)
+
+[node name="YellowDuck" parent="." instance=ExtResource("10_choun")]
+position = Vector2(115, 113)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6dau64rqhnth"]
+
+[ext_resource type="Texture2D" uid="uid://dtkah2ill2s5e" path="res://images/yellow_block.png" id="1_c1kkt"]
+
+[sub_resource type="Curve" id="Curve_hfuqc"]
+_data = [Vector2(0, 0.988764), 0.0, 0.0, 0, 0, Vector2(0.979167, 0.539326), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="electricity" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 30
+texture = ExtResource("1_c1kkt")
+lifetime = 0.35
+spread = 173.49
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_hfuqc")
+anim_speed_max = 42.67

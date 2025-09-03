@@ -1,7 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckpkldtv1hrnh"]
+[gd_scene load_steps=12 format=3 uid="uid://ckpkldtv1hrnh"]
 
 [ext_resource type="Script" uid="uid://c7htr6gfhkypy" path="res://scripts/lightDuck.gd" id="1_7u7fv"]
 [ext_resource type="Texture2D" uid="uid://52ie5aptt65c" path="res://images/yellow.png" id="2_7u7fv"]
+[ext_resource type="PackedScene" uid="uid://dg5i2vxf115b6" path="res://scenes/progress_bar_yellow.tscn" id="3_77iv4"]
+[ext_resource type="PackedScene" uid="uid://c6dau64rqhnth" path="res://scenes/electricity.tscn" id="4_x6kel"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb38s"]
+atlas = ExtResource("2_7u7fv")
+region = Rect2(1024, 0, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_77iv4"]
 atlas = ExtResource("2_7u7fv")
@@ -23,6 +29,14 @@ region = Rect2(1024, 1024, 1024, 1024)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_sb38s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_77iv4")
 }, {
 "duration": 1.0,
@@ -35,16 +49,31 @@ animations = [{
 "texture": SubResource("AtlasTexture_0t606")
 }],
 "loop": true,
-"name": &"default",
+"name": &"walking",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7u7fv"]
 
 [node name="YellowDuck" type="CharacterBody2D"]
 script = ExtResource("1_7u7fv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_sb38s")
-autoplay = "default"
+animation = &"idle"
+autoplay = "walking"
 
 [node name="Line2D" type="Line2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 6)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_7u7fv")
+
+[node name="progress_bar" parent="." instance=ExtResource("3_77iv4")]
+
+[node name="electricity" parent="." instance=ExtResource("4_x6kel")]

@@ -14,7 +14,7 @@ var chargeTime = 3.0
 
 
 func  _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Engine.max_fps = 60
 	
 	pass
@@ -35,20 +35,29 @@ func start_timer():
 	await get_tree().create_timer(chargeTime).timeout
 	print("time finished")
 	is_running = false
+	
+func activate_timer_2():
+	if is_running:
+		return 
+	is_running = true
+	print("time started")
+	start_timer()
+	pass
+
 
 func _physics_process(_delta: float) -> void:
 	#print(Engine.get_frames_per_second())
 	mouse = get_global_mouse_position()
 	to_mouse = mouse - global_position
 	dist = to_mouse.length()
-
+	
 	if dist > stop_radius:
 		velocity = to_mouse.normalized() * speed
 		idle = false
 	else:
 		velocity = Vector2.ZERO
 		idle = true
-
+	
 	move_and_slide()  
 	
 	var target := get_global_mouse_position()
