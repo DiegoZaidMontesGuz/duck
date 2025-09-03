@@ -1,0 +1,111 @@
+[gd_scene load_steps=11 format=3 uid="uid://bl1ubsebmd6ah"]
+
+[ext_resource type="Texture2D" uid="uid://bv2s0v80kfqli" path="res://images/standingPink.png" id="1_dlvm4"]
+[ext_resource type="Texture2D" uid="uid://eudjuiis06an" path="res://images/standing_duck_yellow.png" id="2_gppmw"]
+[ext_resource type="Texture2D" uid="uid://cnji7h0bf17ef" path="res://images/select_pink.png" id="2_xkqyj"]
+[ext_resource type="Texture2D" uid="uid://cw0tceqb7u1us" path="res://images/standing_duck_purple.png" id="3_pfdvn"]
+[ext_resource type="Script" uid="uid://cr2khwej2qlg" path="res://scripts/center.gd" id="4_xkqyj"]
+[ext_resource type="Texture2D" uid="uid://b1pwbv5re3vrx" path="res://images/stanfing duck.png" id="5_16b7y"]
+[ext_resource type="Texture2D" uid="uid://bkj1eneaptthg" path="res://images/select_purple.png" id="6_16b7y"]
+[ext_resource type="Texture2D" uid="uid://be2ja6rkdhbas" path="res://images/select_yellow.png" id="6_gppmw"]
+[ext_resource type="Texture2D" uid="uid://bxr0m4vgd1tv3" path="res://images/choose.png" id="9_88qxp"]
+[ext_resource type="Texture2D" uid="uid://xc1y6bnij73u" path="res://images/grass (5).png" id="10_88qxp"]
+
+[node name="Select" type="Node2D"]
+
+[node name="StandingPink" type="Sprite2D" parent="."]
+position = Vector2(530, 524)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_dlvm4")
+
+[node name="SelectPink" type="Sprite2D" parent="StandingPink"]
+visible = false
+show_behind_parent = true
+position = Vector2(-1.66669, 20)
+scale = Vector2(1.66667, 1.66667)
+texture = ExtResource("2_xkqyj")
+
+[node name="StandingDuckYellow" type="Sprite2D" parent="."]
+position = Vector2(680, 297)
+rotation = -2.21893
+texture = ExtResource("2_gppmw")
+
+[node name="SelectYellow" type="Sprite2D" parent="StandingDuckYellow"]
+visible = false
+show_behind_parent = true
+position = Vector2(-21.7812, -90.5018)
+rotation = 2.21893
+texture = ExtResource("6_gppmw")
+
+[node name="StandingDuckPurple" type="Sprite2D" parent="."]
+position = Vector2(409, 277)
+rotation = 2.2634
+texture = ExtResource("3_pfdvn")
+
+[node name="SelectPurple" type="Sprite2D" parent="StandingDuckPurple"]
+visible = false
+show_behind_parent = true
+position = Vector2(53.4133, -70.3066)
+rotation = -2.2634
+texture = ExtResource("6_16b7y")
+
+[node name="center" type="Node2D" parent="."]
+position = Vector2(538, 372)
+script = ExtResource("4_xkqyj")
+
+[node name="StanfingDuck" type="Sprite2D" parent="center"]
+position = Vector2(241, -4)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_16b7y")
+
+[node name="Choose" type="Sprite2D" parent="."]
+position = Vector2(562, 101)
+texture = ExtResource("9_88qxp")
+
+[node name="Node2D" type="Node2D" parent="."]
+show_behind_parent = true
+
+[node name="Grass(5)2" type="Sprite2D" parent="Node2D"]
+position = Vector2(388, 498)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_88qxp")
+
+[node name="Grass(5)" type="Sprite2D" parent="Node2D"]
+position = Vector2(165, 452)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_88qxp")
+
+[node name="Grass(5)3" type="Sprite2D" parent="Node2D"]
+position = Vector2(435, 305)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_88qxp")
+
+[node name="Grass(5)4" type="Sprite2D" parent="Node2D"]
+position = Vector2(123, 114)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_88qxp")
+
+[node name="Grass(5)5" type="Sprite2D" parent="Node2D"]
+position = Vector2(270, 183)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_88qxp")
+
+[node name="Grass(5)6" type="Sprite2D" parent="Node2D"]
+position = Vector2(608, 127)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_88qxp")
+
+[node name="Grass(5)7" type="Sprite2D" parent="Node2D"]
+position = Vector2(759, 473)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_88qxp")
+
+[node name="Grass(5)8" type="Sprite2D" parent="Node2D"]
+position = Vector2(938, 123)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_88qxp")
+
+[node name="Grass(5)9" type="Sprite2D" parent="Node2D"]
+position = Vector2(1020, 405)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_88qxp")

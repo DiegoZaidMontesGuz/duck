@@ -25,27 +25,20 @@ func is_position_in_wall(pos: Vector2) -> bool:
 	var intersects := space_state.intersect_point(params)
 	return not intersects.is_empty()
 
-# Find a valid landing point that is <= max_dist from 'start'.
-# We try the farthest allowed point first, then step BACK toward the start
-# so we never exceed the distance cap.
 func find_landing_within(start: Vector2, dir: Vector2, max_dist: float, step := 8.0) -> Vector2:
 	var target := start + dir * max_dist
-	# If target is free, take it.
 	if not is_position_in_wall(target):
 		return target
 
-	# Otherwise, back up toward the start (still within max_dist).
 	var pos := target
 	var backed := 0.0
 	while backed <= max_dist and is_position_in_wall(pos):
 		pos -= dir * step
 		backed += step
 
-	# If we exited the wall, pos is guaranteed <= max_dist from start.
 	if not is_position_in_wall(pos):
 		return pos
 
-	# Couldn't find a free spot within the distance cap.
 	return start
 
 func draining_bar():
@@ -65,12 +58,10 @@ func restore_bar():
 func _ready():
 	parent = get_parent()
 	var barInstance = pBar.instantiate()
-	parent.add_child(barInstance)
 	speed = default_speed
 	chargeTime = default_time
 
 func _process(delta):
-	#print(prog_bar.value)
 	if draining_phase:
 		draining_bar()
 	elif  restore_Phase:
@@ -93,14 +84,11 @@ func _input(event):
 		var max_teleport_dist := 600.0
 		var target_dist = min(dist, max_teleport_dist)
 
-		# Compute landing strictly within the cap; allows passing through walls.
 		var landing := find_landing_within(global_position, dir, target_dist, 8.0)
 
-		# Only move if we actually found something different than start.
 		if landing != global_position:
 			global_position = landing
 			draining_phase = true
-		# else: stay put (e.g., entire range is solid)
 
 	elif event is InputEventMouseButton and not event.is_pressed():
 		speed = default_speed

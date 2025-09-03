@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvigfpd8dxu0l"]
+
+[ext_resource type="Script" uid="uid://ctso30otg5awf" path="res://scripts/menu.gd" id="1_g3eks"]
+[ext_resource type="Texture2D" uid="uid://bm12g4vaueotm" path="res://images/ducks.png" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://bwhmkgby32las" path="res://images/blue.png" id="2_vjb58"]
+[ext_resource type="Texture2D" uid="uid://mwmnn6rcdd6p" path="res://images/ddsg.png" id="3_con2f"]
+[ext_resource type="Theme" uid="uid://cgqjqfqjyapql" path="res://themes/default.tres" id="4_4ytvr"]
+[ext_resource type="FontFile" uid="uid://bo87iw0frfthm" path="res://fonts/Symtext.ttf" id="4_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://bsinuhcteqwuh" path="res://images/green.png" id="7_v86rl"]
+[ext_resource type="Texture2D" uid="uid://bsdipkcjoe6fr" path="res://images/loading.png" id="8_13sgg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mhnvy"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_g3eks")
+
+[node name="Ducks" type="Sprite2D" parent="."]
+position = Vector2(261, 493)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_yqeox")
+
+[node name="Blue" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(585, 96)
+scale = Vector2(28.6875, 9.23438)
+texture = ExtResource("2_vjb58")
+
+[node name="Ddsg" type="Sprite2D" parent="."]
+modulate = Color(1, 0.614127, 0.803137, 1)
+position = Vector2(826, 150)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_con2f")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 858.0
+offset_top = 343.0
+offset_right = 1070.0
+offset_bottom = 448.0
+theme = ExtResource("4_4ytvr")
+theme_override_fonts/font = ExtResource("4_mhnvy")
+theme_override_font_sizes/font_size = 57
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mhnvy")
+text = "play
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Green" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(785, 264)
+scale = Vector2(36.5313, 17.0469)
+texture = ExtResource("7_v86rl")
+
+[node name="Loading" type="Sprite2D" parent="Green"]
+position = Vector2(-3.83233, 5.57287)
+scale = Vector2(0.0273738, 0.0586618)
+texture = ExtResource("8_13sgg")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

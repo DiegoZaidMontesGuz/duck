@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="duckGame"
-run/main_scene="uid://cnywkbb8n4esc"
+run/main_scene="uid://dvigfpd8dxu0l"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://scripts/Global.gd"
 
 [dotnet]
 
