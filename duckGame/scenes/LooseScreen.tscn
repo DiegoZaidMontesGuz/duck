@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://1svum3iwqtag"]
+
+[ext_resource type="Script" uid="uid://cvveqx0gyx8gl" path="res://scripts/loose_screen.gd" id="1_of53u"]
+[ext_resource type="Texture2D" uid="uid://b8nokx0f5t4vl" path="res://images/you lose.png" id="2_vr1e5"]
+[ext_resource type="PackedScene" uid="uid://c324vfhr4v2lh" path="res://scenes/button.tscn" id="3_10t4f"]
+
+[node name="LooseScreen" type="Node2D"]
+script = ExtResource("1_of53u")
+
+[node name="YouLose" type="Sprite2D" parent="."]
+position = Vector2(320, 212)
+texture = ExtResource("2_vr1e5")
+
+[node name="Button" parent="." instance=ExtResource("3_10t4f")]
+offset_left = 625.0
+offset_top = 310.0
+offset_right = 837.0
+offset_bottom = 415.0
+text = "Menu
+"
+
+[node name="Button2" parent="." instance=ExtResource("3_10t4f")]
+offset_left = 586.0
+offset_top = 478.0
+offset_right = 999.0
+offset_bottom = 583.0
+text = "play agian
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

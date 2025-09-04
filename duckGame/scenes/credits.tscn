@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi32b8bk2pccx"]
+
+[ext_resource type="Texture2D" uid="uid://c3s77abnnwn1j" path="res://images/credits.png" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://c7mebgijdg2x6" path="res://scripts/credits.gd" id="1_0ctdu"]
+[ext_resource type="PackedScene" uid="uid://c324vfhr4v2lh" path="res://scenes/button.tscn" id="3_2fbfq"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_0ctdu")
+
+[node name="Credits" type="Sprite2D" parent="."]
+position = Vector2(302, 225)
+scale = Vector2(1.61667, 1.49451)
+texture = ExtResource("1_0bpdh")
+
+[node name="Button" parent="." instance=ExtResource("3_2fbfq")]
+offset_left = 747.0
+offset_top = 309.0
+offset_right = 959.0
+offset_bottom = 414.0
+text = "Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

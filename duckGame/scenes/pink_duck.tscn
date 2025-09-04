@@ -70,7 +70,9 @@ scale = Vector2(6, 6)
 shape = SubResource("CircleShape2D_2qptc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="progress_bar" parent="." instance=ExtResource("3_hguhe")]
 scale = Vector2(2, 2)

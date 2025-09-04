@@ -12,30 +12,43 @@ var default_speed = 600
 
 func draning_bar():
 	if prog_bar.value != 0:
-		prog_bar.value -= 10
+		prog_bar.value -= 200
+	else :
+		speed_phase = false
+		restore_phase
+			
 	pass
 func restore_bar():
 	is_running = true
 	if prog_bar.value != 1000:
-		prog_bar.value += 10
+		prog_bar.value += 5
 	else : 
 		restore_phase = false
 		is_running = false
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Engine.max_fps = 60
+	
 	speed = default_speed
 	speed = 600
 	
+	add_to_group("player") 
+	
 func _process(delta):
+	print(prog_bar.value)
 	if speed_phase:
 		draning_bar()
 	if restore_phase:
 		restore_bar()
 	
 func _input(event):
-	if event is InputEventMouseButton and not is_running:
+	
+	if prog_bar.value == 0:
+		restore_phase = true
+	if event is InputEventMouseButton and not is_running and not restore_phase:
 		#activate_timer()
 		speed_phase = true
-		speed *= 5
+		speed *= 7
 		electricity.emitting = true
 		
 	else:

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bu5fryks37y16"
+path="res://.godot/imported/Wakka Wakka.mp3-adcf52a70d0541954a4bccd2c0e2e21b.mp3str"
+
+[deps]
+
+source_file="res://sound/Wakka Wakka.mp3"
+dest_files=["res://.godot/imported/Wakka Wakka.mp3-adcf52a70d0541954a4bccd2c0e2e21b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

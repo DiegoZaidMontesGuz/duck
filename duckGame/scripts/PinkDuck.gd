@@ -56,12 +56,19 @@ func restore_bar():
 	
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Engine.max_fps = 60
+	
 	parent = get_parent()
 	var barInstance = pBar.instantiate()
 	speed = default_speed
 	chargeTime = default_time
+	
+	add_to_group("player") 
+	
 
 func _process(delta):
+	
 	if draining_phase:
 		draining_bar()
 	elif  restore_Phase:
@@ -81,7 +88,7 @@ func _input(event):
 
 		# Direction and hard cap
 		var dir := to_mouse.normalized()
-		var max_teleport_dist := 600.0
+		var max_teleport_dist := 450.0
 		var target_dist = min(dist, max_teleport_dist)
 
 		var landing := find_landing_within(global_position, dir, target_dist, 8.0)

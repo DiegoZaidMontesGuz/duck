@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://i7705ofq2omt"]
+[gd_scene load_steps=9 format=3 uid="uid://i7705ofq2omt"]
 
-[ext_resource type="Script" uid="uid://cl4peijrwo7at" path="res://scripts/movement.gd" id="1_n5x6b"]
+[ext_resource type="Script" uid="uid://cp3hp3xabxm7v" path="res://scripts/Enemy.gd" id="1_fg3gw"]
 [ext_resource type="Texture2D" uid="uid://bo53ow0j7ehce" path="res://images/white duck.png" id="2_fg3gw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0eovg"]
@@ -39,11 +39,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fg3gw"]
+
 [node name="White Duck" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_n5x6b")
+script = ExtResource("1_fg3gw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_lvhuc")
 autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(62, 10)
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_fg3gw")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

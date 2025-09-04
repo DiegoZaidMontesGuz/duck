@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bes1mbgox5ap7"]
+
+[ext_resource type="Script" uid="uid://d43pi2wmy56u" path="res://scripts/win_screen.gd" id="1_k04ep"]
+[ext_resource type="Texture2D" uid="uid://10d8gjjeu03j" path="res://images/you win.png" id="2_ku56o"]
+[ext_resource type="PackedScene" uid="uid://c324vfhr4v2lh" path="res://scenes/button.tscn" id="3_3umo7"]
+
+[node name="WinScreen" type="Node2D"]
+script = ExtResource("1_k04ep")
+
+[node name="YouWin" type="Sprite2D" parent="."]
+position = Vector2(284, 227)
+texture = ExtResource("2_ku56o")
+
+[node name="Button" parent="." instance=ExtResource("3_3umo7")]
+offset_left = 742.0
+offset_top = 290.0
+offset_right = 954.0
+offset_bottom = 395.0
+text = "Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
