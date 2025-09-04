@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dg5i2vxf115b6"]
 
-[ext_resource type="Script" uid="uid://bjrr28q16ognj" path="res://scripts/progress_bar.gd" id="1_daqrh"]
+[ext_resource type="Script" uid="uid://bjrr28q16ognj" path="res://progress_bar.gd" id="1_daqrh"]
 [ext_resource type="Texture2D" uid="uid://crrqfj5ph8hfh" path="res://images/circle.png" id="2_sism6"]
 [ext_resource type="Texture2D" uid="uid://cej31iu53ny1b" path="res://images/circle yellow.png" id="3_daqrh"]
 
